@@ -1,1 +1,28 @@
 @use '~bootstrap/scss/bootstrap';
+
+/* ボタンスタイル（クラス名: button） */
+.button button {
+  background: #eee;
+  border-radius: 50px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 260px;
+  padding: 10px 25px;
+  color: #313131;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.button button:hover {
+  background: #313131;
+  color: #FFF;
+}
+
+.button button:hover::after {
+  border-color: #FFF;
+}

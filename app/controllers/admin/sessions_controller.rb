@@ -24,4 +24,16 @@ class Admin::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  # app/controllers/admin/sessions_controller.rb
+  class Admin::SessionsController < Devise::SessionsController
+    protected
+
+    def after_sign_in_path_for(resource)
+      admin_items_path  # ログイン後に /admin/items に遷移
+    end
+    
+    def after_sign_out_path_for(resource_or_scope)
+      new_admin_session_path
+    end
+  end
 end

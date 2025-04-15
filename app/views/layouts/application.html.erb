@@ -12,7 +12,12 @@
   </head>
 
   <body>
-    <%= render '/layouts/navigation' %>
+    <% if controller_path.start_with?("admin/") %>
+      <%= render 'layouts/admin' %>
+    <% else %>
+      <%= render 'layouts/navigation' %>
+    <% end %>
+    <div class="mt-5"></div>
     <%= yield %>
   </body>
 </html>

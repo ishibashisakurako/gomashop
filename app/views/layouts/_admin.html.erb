@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#fce6e8">
+  <div class="container">
+    <a class="navbar-brand" href="/" data-turbolinks=false>GomaShop Admin</a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <% if admin_signed_in? %> 
+        <li>
+        <%= link_to admin_items_path, class: 'nav-link' do %>
+          <i class="fa-solid fa-right-to-bracket"></i>商品一覧ページ
+        <% end %>
+        </li>
+        <li>
+          <%= link_to new_admin_item_path, class: 'nav-link' do %>
+            <i class="fa-solid fa-right-to-bracket"></i>商品登録
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
+            <i class="fa-solid fa-right-to-bracket"></i>ログアウト
+          <% end %>
+        </li>
+
+      <% else %>
+        <li>
+          <%= link_to new_admin_session_path, class: "nav-link" do %>
+            <i class="fa-solid fa-right-to-bracket"></i>ログイン
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

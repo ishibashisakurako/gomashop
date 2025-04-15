@@ -1,0 +1,13 @@
+<%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+  <p>商品名</p>
+  <%= f.text_field :name %>
+  <p>商品画像</p>
+  <%= f.file_field :image, accept: "image/*" %>
+  <p>説明</p>
+  <%= f.text_area :introduction %>
+  <p>価格</p>
+  <%= f.text_field :price %>
+
+  <%= f.submit '商品を登録する' %>
+
+<% end %>
