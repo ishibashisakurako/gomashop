@@ -4,36 +4,36 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <%= form_with model: @item, url: admin_item_path(@item), local: true do |f| %>
-        <p>
-          商品画像
-          <div class="text-right">
+        <div class="row mb-3">
+          <%= f.label :image, "商品画像", class: "col-md-4" %>
+          <div class="col-md-8">
             <%= f.file_field :image, accept: "image/*" %>
           </div>
-        </p>
-
-        <p>
-          商品名
-          <div class="text-right">
-            <%= f.text_field :name %>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :name, "商品名", class: "col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_field :name, class: "form-control" %>
           </div>
-        </p>
-
-        <p>
-          商品説明
-          <div class="text-right">
-            <%= f.text_area :introduction, class: "form-control" %>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :introduction, "説明", class: "col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_area :introduction, class: "form-control", rows: 4 %>
           </div>
-        </p>
-        <p>価格
-          <div class="text-center">
-            <%= f.text_field :price %>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :price, "価格", class: "col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_field :price, class: "form-control" %>
           </div>
-        </p>
-        
+        </div>
+          
         <div class="d-flex justify-content-center">
           <%= f.button class: "btn btn-outline-success" do %>
             <i class="fa-solid fa-check"></i>
           <% end %>
+          <div class="mr-3"></div>
           <%= link_to admin_item_path(@item), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に削除しますか？" do %>
             <i class="fa-solid fa-trash"></i>
           <% end %>

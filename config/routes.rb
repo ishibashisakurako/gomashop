@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
+    root to: "homes#top"
     resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
   
   # ①Deviseのルーティングを先に書く
@@ -14,7 +16,14 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-    resources :customers, only: [:show, :edit, :update]
+    resources :customers, only: [:show, :edit, :update] do
+      collection do
+        get "unsubscribe"
+        patch "withdraw"
+      end
+    end
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
   end
 
   root to: "public/homes#top"

@@ -1,0 +1,19 @@
+<p>会員詳細</p>
+
+<%= @customer.last_name %>
+<%= @customer.first_name %>
+<%= @customer.last_name_kana %>
+<%= @customer.first_name_kana %>
+<%= @customer.email %>
+<%= @customer.postal_code %>
+<%= @customer.address %>
+<%= @customer.telephone_number %>
+<% if @customer.is_active %>
+  <b class="truestatus">有効</b>
+<% else %>
+  <b class="falsestatus">退会</b>
+<% end %>
+
+<%= link_to edit_admin_customer_path(@customer), class: "btn btn-outline-success mr-2" do %>
+  <i class="fa-solid fa-gear"></i>
+<% end %>

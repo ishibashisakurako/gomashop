@@ -18,5 +18,9 @@
   <p>電話番号
   <%= @customer.telephone_number %></p>
 
+  <%= link_to edit_customer_path(@customer), class: "btn btn-outline-success" do %>
+    <i class="fa-solid fa-gear"></i>
+  <% end %>
+
   注文履歴
 </div>

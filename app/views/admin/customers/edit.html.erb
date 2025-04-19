@@ -1,6 +1,6 @@
 <p>会員情報編集</p>
 
-<%= form_with model: @customer, local: true do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
 
    <div class="field">
     <%= f.label :last_name, "姓" %><br />
@@ -42,10 +42,15 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <p>会員ステータス</p>
+  <%= f.radio_button :is_active, "true" %>
+  <%= f.label :is_active, "有効" %>
+  <%= f.radio_button :is_active, "false" %>
+  <%= f.label :is_active, "無効" %>
+
+
   <%= f.button class: "btn btn-outline-success" do %>
     <i class="fa-solid fa-check"></i>
   <% end %>
-
-退会する
 
 <% end %>

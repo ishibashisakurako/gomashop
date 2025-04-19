@@ -14,12 +14,25 @@
         <% end %>
         </li>
         <li>
+          <%= link_to items_path, class: "nav-link" do %>
+            <i class="fas fa-user-plus"></i> 商品一覧
+          <% end %>
+        </li>
+        <li>
+  
+        </li>
+        <li>
           <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link' do %>
             <i class="fa-solid fa-right-to-bracket"></i>ログアウト
           <% end %>
         </li>
 
       <% else %>
+        <li>
+          <%= link_to items_path, class: "nav-link" do %>
+            <i class="fas fa-user-plus"></i> 商品一覧
+            <% end %>
+        </li>
         <li>
           <%= link_to new_customer_registration_path, class: 'nav-link' do %>
             <i class="fas fa-user-plus"></i> 新規登録

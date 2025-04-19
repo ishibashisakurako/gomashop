@@ -15,9 +15,12 @@
     <% if controller_path.start_with?("admin/") %>
       <%= render 'layouts/admin' %>
     <% else %>
-      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/public' %>
     <% end %>
-    <div class="mt-5"></div>
-    <%= yield %>
+    <div class="mt-5">
+      <%= notice %>
+      <%= alert %>
+      <%= yield %>
+    </div>
   </body>
 </html>
