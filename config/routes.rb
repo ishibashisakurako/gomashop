@@ -24,6 +24,12 @@ Rails.application.routes.draw do
     end
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :update, :destroy, :create]
+    resources :orders, only: [:new, :index, :show, :create] do
+      collection do
+        post 'confirm'
+        get 'thenks'
+      end
+    end
   end
 
   root to: "public/homes#top"

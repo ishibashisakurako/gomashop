@@ -1,7 +1,7 @@
 class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
   end
 
   def create
@@ -12,6 +12,18 @@ class Public::CartItemsController < ApplicationController
       redirect_back fallback_location: root_path, alert: "カート追加に失敗しました。"
     end
   end
+
+  def destroy
+    cart_item = current_customer.cart_items.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_items_path
+  end
+
+  def update
+    cart_item = current_customer.cart_items.find(params[:id])
+    cart_item.update(cart_item_params)
+    redirect_to cart_items_path
+  end  
 
   private
 
