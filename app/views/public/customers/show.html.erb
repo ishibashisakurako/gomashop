@@ -1,26 +1,60 @@
-<div class="text-center">
-  <h1>マイページ</h1>
-  <p>登録情報</p>
-  <p>メールアドレス
-  <%= @customer.email %></p>
-  <p>姓
-  <%= @customer.last_name %></p>
-  <p>名
-  <%= @customer.first_name %></p>
-  <p>姓カナ
-  <%= @customer.last_name_kana %></p>
-  <p>名カナ
-  <%= @customer.first_name_kana %></p>
-  <p>郵便番号
-  <%= @customer.postal_code %></p>
-  <p>住所
-  <%= @customer.address %></p>
-  <p>電話番号
-  <%= @customer.telephone_number %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="text-center">マイページ</div>
+      <hr>
+      <div class="row mb-3">
+        <div class="col-md-6">メールアドレス</div>
+        <b class="col-md-6 text-right">
+          <%= @customer.email %>
+        </b>
+      </div>
+      <hr>
 
-  <%= link_to edit_customer_path(@customer), class: "btn btn-outline-success" do %>
-    <i class="fa-solid fa-gear"></i>
-  <% end %>
+      <div class="row mb-3">
+        <div class="col-md-6">名前</div>
+        <b class="col-md-6 text-right">
+          <%= @customer.last_name %> <%= @customer.first_name %>
+        </b>
+      </div>
+      <hr>
 
-  注文履歴
+      <div class="row mb-3">
+        <div class="col-md-6">カナ</div>
+        <b class="col-md-6 text-right">
+          <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+        </b>
+      </div>
+      <hr>
+
+      <div class="row mb-3">
+        <div class="col-md-6">郵便番号</div>
+        <b class="col-md-6 text-right">
+          <%= @customer.postal_code %>
+        </b>
+      </div>
+      <hr>
+
+      <div class="row mb-3">
+        <div class="col-md-6">住所</div>
+        <b class="col-md-6 text-right">
+          <%= @customer.address %>
+        </b>
+      </div>
+      <hr>
+
+      <div class="row mb-3">
+        <div class="col-md-6">電話番号</div>
+        <b class="col-md-6 text-right">
+          <%= @customer.telephone_number %>
+        </b>
+      </div>
+
+      <%= link_to edit_customer_path(@customer), class: "btn btn-outline-success" do %>
+        <i class="fa-solid fa-gear"></i>
+      <% end %>
+
+      注文履歴のURL作る
+    </div>
+  </div>
 </div>

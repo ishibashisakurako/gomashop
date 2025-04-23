@@ -1,56 +1,82 @@
-<p>会員情報編集</p>
+<div class="container">
+  <div class="row"> 
+    <div class="col-md-6 offset-md-3">
+      <div class="text-center">会員情報編集</div>
+      <hr>
+      <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
 
-<%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
+        <div class="row mb-3">
+          <%= f.label :last_name, "姓", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+        </div>
 
-   <div class="field">
-    <%= f.label :last_name, "姓" %><br />
-    <%= f.text_field :last_name %>
+        <div class="row mb-3">
+          <%= f.label :first_name, "名", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= f.label :last_name_kana, "セイ", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.text_field :last_name_kana, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= f.label :first_name_kana, "メイ", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.text_field :first_name_kana, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= f.label :postal_code, "郵便番号", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.text_field :postal_code, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= f.label :address, "住所", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= f.label :telephone_number, "電話番号", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.text_field :telephone_number, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= f.label :email,"メールアドレス", class: "col-md-4 col-form-label" %><br />
+          <div class="col-md-8">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <p class="col-md-4 col-form-label">会員ステータス</p>
+          <div class="col-md-8">
+            <%= f.radio_button :is_active, "true" %>
+            <%= f.label :is_active, "有効" %>
+            <%= f.radio_button :is_active, "false" %>
+            <%= f.label :is_active, "無効" %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <%= f.button class: "btn btn-outline-success" do %>
+            <i class="fa-solid fa-check"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :first_name, "名" %><br />
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name_kana, "セイ" %><br />
-    <%= f.text_field :last_name_kana %>
-  </div>
-
-  <div class="field">
-    <%= f.label :first_name_kana, "メイ" %><br />
-    <%= f.text_field :first_name_kana %>
-  </div>
-
-  <div class="field">
-    <%= f.label :postal_code, "郵便番号" %><br />
-    <%= f.text_field :postal_code %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address, "住所" %><br />
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telephone_number, "電話番号" %><br />
-    <%= f.text_field :telephone_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email,"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <p>会員ステータス</p>
-  <%= f.radio_button :is_active, "true" %>
-  <%= f.label :is_active, "有効" %>
-  <%= f.radio_button :is_active, "false" %>
-  <%= f.label :is_active, "無効" %>
-
-
-  <%= f.button class: "btn btn-outline-success" do %>
-    <i class="fa-solid fa-check"></i>
-  <% end %>
-
-<% end %>
+</div>

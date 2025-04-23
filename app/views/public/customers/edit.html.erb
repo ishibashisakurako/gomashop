@@ -1,51 +1,55 @@
-<p>会員情報編集</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <p><i class="fa-solid fa-gears"></i> 会員情報編集</p>
+      <%= form_with model: @customer, local: true do |f| %>
+        <div class="field">
+          <%= f.label :last_name, "姓" %><br />
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
 
-<%= form_with model: @customer, local: true do |f| %>
+        <div class="field">
+          <%= f.label :first_name, "名" %><br />
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
 
-   <div class="field">
-    <%= f.label :last_name, "姓" %><br />
-    <%= f.text_field :last_name %>
+        <div class="field">
+          <%= f.label :last_name_kana, "セイ" %><br />
+          <%= f.text_field :last_name_kana, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :first_name_kana, "メイ" %><br />
+          <%= f.text_field :first_name_kana, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :postal_code, "郵便番号" %><br />
+          <%= f.text_field :postal_code, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address, "住所" %><br />
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :telephone_number, "電話番号" %><br />
+          <%= f.text_field :telephone_number, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email,"メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+
+        <%= f.button class: "btn btn-outline-success mt-4" do %>
+          <i class="fa-solid fa-check"></i>
+        <% end %>
+
+        <%= link_to "退会する", unsubscribe_customers_path %>
+
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :first_name, "名" %><br />
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name_kana, "セイ" %><br />
-    <%= f.text_field :last_name_kana %>
-  </div>
-
-  <div class="field">
-    <%= f.label :first_name_kana, "メイ" %><br />
-    <%= f.text_field :first_name_kana %>
-  </div>
-
-  <div class="field">
-    <%= f.label :postal_code, "郵便番号" %><br />
-    <%= f.text_field :postal_code %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address, "住所" %><br />
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telephone_number, "電話番号" %><br />
-    <%= f.text_field :telephone_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email,"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <%= f.button class: "btn btn-outline-success" do %>
-    <i class="fa-solid fa-check"></i>
-  <% end %>
-
-退会する
-
-<% end %>
+</div>

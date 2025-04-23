@@ -1,13 +1,53 @@
-<%= form_with model: @item, url: admin_items_path, local: true do |f| %>
-  <p>商品名</p>
-  <%= f.text_field :name %>
-  <p>商品画像</p>
-  <%= f.file_field :image, accept: "image/*" %>
-  <p>説明</p>
-  <%= f.text_area :introduction %>
-  <p>価格</p>
-  <%= f.text_field :price %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="text-center">商品を登録する</div>
+      <hr>
 
-  <%= f.submit '商品を登録する' %>
-
+<% if @item.errors.any? %>
+  <div class="alert alert-danger">
+    <h5>入力に誤りがあります：</h5>
+    <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+
+      <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+        <div class="row mb-3">
+          <%= f.label :image, "商品画像", class: "col-md-4" %>
+          <div class="col-md-8">
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :name, "商品名", class: "col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :introduction, "説明", class: "col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_area :introduction, class: "form-control", rows: 4 %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :price, "価格", class: "col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_field :price, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <%= f.button class: "btn btn-outline-success" do %>
+            <i class="fa-solid fa-check"></i>
+          <% end %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

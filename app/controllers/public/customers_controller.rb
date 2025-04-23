@@ -13,6 +13,10 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path(@customer)
   end
 
+  def unsubsribe
+    
+  end
+  
   private
 
   def customer_params

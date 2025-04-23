@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
-      <i class="fa-solid fa-gears"></i>
-      <p>管理者ログイン</p>
+      <p><i class="fa-solid fa-gears"></i>管理者ログイン</p>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <p class="field">
@@ -25,7 +24,6 @@
         </div>
       <% end %>
 
-      <%= render "admin/shared/links" %>
     </div>
   </div>
 </div>

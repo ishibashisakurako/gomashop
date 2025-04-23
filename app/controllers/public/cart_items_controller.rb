@@ -5,7 +5,9 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = current_customer.cart_items.new(cart_item_params)
+    @item = Item.find(cart_item_params[:item_id])
+    @cart_item = current_customer.cart_items.find_or_initialize_by(item: @item)
+    @cart_item.amount = cart_item_params[:amount].to_i + (@cart_item.amount || 0)
     if @cart_item.save
       redirect_to cart_items_path, notice: "カートに追加しました！"
     else
