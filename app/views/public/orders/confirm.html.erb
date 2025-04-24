@@ -2,22 +2,29 @@
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <div class="text-center">注文確認画面</div>
-      <p>メールアドレス
-      <%= @customer.email %></p>
-      <p>姓
-      <%= @customer.last_name %></p>
-      <p>名
-      <%= @customer.first_name %></p>
-      <p>姓カナ
-      <%= @customer.last_name_kana %></p>
-      <p>名カナ
-      <%= @customer.first_name_kana %></p>
-      <p>郵便番号
-      <%= @customer.postal_code %></p>
-      <p>住所
-      <%= @customer.address %></p>
-      <p>電話番号
-      <%= @customer.telephone_number %></p>
+      名前
+      <p><%= @customer.last_name %> <%= @customer.first_name %></p>
+      カナ
+      <p><%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+      郵便番号
+      <p><%= @customer.postal_code %></p>
+      住所
+      <p><%= @customer.address %></p>
+      電話番号
+      <p><%= @customer.telephone_number %></p>
+      支払方法
+      <p><%= @order.payment_method == "credit_card" ? "クレジットカード" : "銀行振込" %></p>
+      
+      <%= form_with model: @order do |f| %>
+        <%= @order.attributes %>
+        <%= f.hidden_field :postal_code, value: @order.postal_code %>
+        <%= f.hidden_field :address, value: @order.address %>
+        <%= f.hidden_field :telephone_number, value: @order.telephone_number %>
+        <%= f.hidden_field :payment_method, value: @order.payment_method %>
+        <%= f.submit "注文する" %>
+      <% end %>
+      
+      <%= link_to "戻る", new_order_path %>
     </div>
   </div>
 </div>

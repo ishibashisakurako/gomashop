@@ -13,8 +13,15 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path(@customer)
   end
 
-  def unsubsribe
-    
+  def unsubscribe
+    @customer = current_customer
+  end
+
+  def withdraw
+    @customer = current_customer
+    @customer.update(is_active: false)
+    reset_session
+    redirect_to root_path
   end
   
   private

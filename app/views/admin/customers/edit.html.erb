@@ -64,10 +64,10 @@
         <div class="row mb-3">
           <p class="col-md-4 col-form-label">会員ステータス</p>
           <div class="col-md-8">
-            <%= f.radio_button :is_active, "true" %>
-            <%= f.label :is_active, "有効" %>
-            <%= f.radio_button :is_active, "false" %>
-            <%= f.label :is_active, "無効" %>
+            <%= f.radio_button :is_active, true %>
+            <%= f.label :is_active_true, "有効" %>
+            <%= f.radio_button :is_active, false %>
+            <%= f.label :is_active_false, "無効" %>
           </div>
         </div>
 

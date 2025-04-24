@@ -31,7 +31,8 @@ class Admin::CustomersController < ApplicationController
       :postal_code,
       :address,
       :telephone_number,
-      :email
+      :email,
+      :is_active
     )
   end
 end

@@ -1,2 +1,6 @@
-<h1>Public::Orders#thanks</h1>
-<p>Find me in app/views/public/orders/thanks.html.erb</p>
+<div class="text-center">
+  ご注文ありがとうございました！
+  詳細をメールアドレスに送信いたしましたのでご確認ください。
+
+  <%= link_to "マイページへ", customer_path(current_customer) %>
+</div>
