@@ -7,6 +7,18 @@ class Public::OrdersController < ApplicationController
   def create
     @order = current_customer.orders.new(order_params)
     if @order.save
+      cart_items = current_customer.cart_items
+
+      cart_items.each do |cart_item|
+        order_detail = OrderDetail.new
+        order_detail.order_id = @order.id
+        order_detail.item_id = cart_item.item_id
+        order_detail.price = cart_item.item.price
+        order_detail.amount = cart_item.amount
+        order_detail.save!
+      end
+
+      current_customer.cart_items.destroy_all
       redirect_to thanks_orders_path
     else
       @customer = current_customer
@@ -21,8 +33,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
     @customer = current_customer
+    @shopping_cost = 800
+    @total_price = @cart_items.sum { |cart_item| cart_item.item.price * cart_item.amount }
+    @total_payment = @total_price + @shopping_cost
   end
 
   def thanks

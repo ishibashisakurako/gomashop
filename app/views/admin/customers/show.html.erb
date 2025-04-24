@@ -1,19 +1,26 @@
-<p>会員詳細</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="text-center">会員詳細</div>
+      <hr>
 
-<%= @customer.last_name %>
-<%= @customer.first_name %>
-<%= @customer.last_name_kana %>
-<%= @customer.first_name_kana %>
-<%= @customer.email %>
-<%= @customer.postal_code %>
-<%= @customer.address %>
-<%= @customer.telephone_number %>
-<% if @customer.is_active %>
-  <b class="truestatus">有効</b>
-<% else %>
-  <b class="falsestatus">退会</b>
-<% end %>
+      <p>名前：<%= @customer.last_name %> <%= @customer.first_name %>
+      <p>カナ：<%= @customer.last_name_kana %> <%= @customer.first_name_kana %></p>
+      <p>メールアドレス：<%= @customer.email %></p>
+      <p>郵便番号：<%= @customer.postal_code %></p>
+      <p>住所：<%= @customer.address %></p>
+      <p>電話番号：<%= @customer.telephone_number %></p>
+      <p>ステータス：
+        <% if @customer.is_active %>
+          <b class="truestatus">有効</b>
+        <% else %>
+          <b class="falsestatus">退会</b>
+        <% end %>
+      </p>
 
-<%= link_to edit_admin_customer_path(@customer), class: "btn btn-outline-success mr-2" do %>
-  <i class="fa-solid fa-gear"></i>
-<% end %>
+      <%= link_to edit_admin_customer_path(@customer), class: "btn btn-outline-success mr-2" do %>
+        <i class="fa-solid fa-gear"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

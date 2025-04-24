@@ -1,20 +1,32 @@
 <div class="text-center">会員一覧</div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <table>
+    <div class="col-md-8 offset-md-2">
+      <table class="table">
         <tr>
+          <th>会員id</th>
           <th>名前</th>
           <th>メールアドレス</th>
+          <th>会員ステータス</th>
         </tr>
-        <tr>
-          <% @customers.each do |customer| %>
-            <td><%= link_to admin_customer_path(customer) do %>
-              <%= customer.last_name %><%= customer.first_name %>
-            <% end %></td>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td>
+              <%= link_to admin_customer_path(customer) do %>
+                <%= customer.last_name %><%= customer.first_name %>
+              <% end %>
+            </td>
             <td><%= customer.email %></td>
-          <% end %>
-        </tr>
+            <td>
+              <% if customer.is_active %>
+                <b class="truestatus">有効</b>
+              <% else %>
+                <b class="falsestatus">退会</b>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
       </table>
     </div>
   </div>

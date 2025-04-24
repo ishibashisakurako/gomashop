@@ -4,35 +4,6 @@
       <div class="text-center">注文情報入力</div>
       <hr>
       <%= form_with model: @order, url: confirm_orders_path, method: :post, local: true do |f| %>
-
-        <div class="row mb-3">
-          <%= f.label :last_name, "姓", class: "col-md-4 col-form-label" %>
-          <div class="col-md-8">
-            <%= f.text_field :last_name, class: "form-control", value: @customer.last_name, disabled: true %>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <%= f.label :first_name, "名", class: "col-md-4 col-form-label" %>
-          <div class="col-md-8">
-            <%= f.text_field :first_name, class: "form-control", value: @customer.first_name, disabled: true %>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <%= f.label :last_name_kana, "セイ", class: "col-md-4 col-form-label" %>
-          <div class="col-md-8">
-            <%= f.text_field :last_name_kana, class: "form-control", value: @customer.last_name_kana, disabled: true %>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <%= f.label :first_name_kana, "メイ", class: "col-md-4 col-form-label" %>
-          <div class="col-md-8">
-            <%= f.text_field :first_name_kana, class: "form-control", value: @customer.first_name_kana, disabled: true %>
-          </div>
-        </div>
-
         <div class="row mb-3">
           <%= f.label :postal_code, "郵便番号", class: "col-md-4 col-form-label" %>
           <div class="col-md-8">
