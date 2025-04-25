@@ -99,10 +99,9 @@ ActiveRecord::Schema.define(version: 2025_04_24_113912) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "shipping_cost", default: 0, null: false
+    t.integer "shopping_cost", default: 0, null: false
     t.integer "total_payment", default: 0, null: false
     t.integer "payment_method", default: 0, null: false
-    t.integer "status", default: 0, null: false
     t.string "postal_code"
     t.string "address"
     t.string "telephone_number"

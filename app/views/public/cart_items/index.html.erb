@@ -25,7 +25,13 @@
           </tr>
         <% end %>
       </table>
-      <%= link_to "会計に進む", new_order_path %>
+      <% if current_customer.cart_items.any? %>
+        <%= link_to "買い物を続ける", items_path %>
+        <%= link_to "会計に進む", new_order_path %>
+      <% else %>
+        <p>カートにアイテムがありません。</p>
+        <%= link_to "お買い物へ", items_path %>
+      <% end %>
     </div>
   </div>
 </div>

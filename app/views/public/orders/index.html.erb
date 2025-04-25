@@ -1,7 +1,23 @@
-<div class="text-center">
-  注文履歴
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="text-center">
+        注文履歴
+      </div>
+      <table class="table">
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>支払金額</th>
+        </tr>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.created_at.strftime("%Y年%m月%d日"), order_path(order) %></td>
+            <td><%= order.address %></td>
+            <td><%= order.total_payment %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
-
-注文日
-配送先
-支払方法

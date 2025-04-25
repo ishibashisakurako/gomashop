@@ -6,9 +6,15 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = current_customer.orders.new(order_params)
-    if @order.save
-      cart_items = current_customer.cart_items
 
+    cart_items = current_customer.cart_items
+    shopping_cost = 800
+    total_price = cart_items.sum { |item| item.item.price * item.amount }
+
+    @order.total_payment = total_price + shopping_cost
+    @order.shopping_cost = shopping_cost
+
+    if @order.save
       cart_items.each do |cart_item|
         order_detail = OrderDetail.new
         order_detail.order_id = @order.id
@@ -27,9 +33,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+
+    @total_price = @order_details.sum { |order_detail| order_detail.price * order_detail.amount }
   end
 
   def confirm

@@ -4,6 +4,7 @@
       <div class="text-center">
         注文履歴詳細
       </div>
+      <hr>
       注文情報
       <hr>
       <p><%= @order.created_at.strftime("%Y年%m月%d日") %></p>
@@ -42,7 +43,7 @@
           <td><%= @order.total_payment %>円</td>
         </tr>
       </table>
-      <%= link_to "戻る", orders_path %>
+      <%= link_to "戻る", admin_root_path %>
     </div>
   </div>
 </div>
