@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
-      <p><i class="fa-solid fa-gears"></i> 会員情報編集</p>
+      <p class="mozi">会員情報編集</p>
+      <hr>
       <%= form_with model: @customer, local: true do |f| %>
         <div class="field">
           <%= f.label :last_name, "姓" %><br />
@@ -43,11 +44,11 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
 
-        <%= f.button class: "btn btn-outline-success mt-4" do %>
-          <i class="fa-solid fa-check"></i>
-        <% end %>
+        <div class="button">
+          <button type="submit">更新する</button>
+        </div>
 
-        <%= link_to "退会する", unsubscribe_customers_path %>
+        <p><%= link_to "退会する", unsubscribe_customers_path %></p>
 
       <% end %>
     </div>

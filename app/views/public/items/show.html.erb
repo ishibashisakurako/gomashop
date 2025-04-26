@@ -11,12 +11,18 @@
     <div class="col-md-7">
       <p><b><%= @item.name %></b></p>
       <p><%= @item.introduction %></p>
-      <p>税込価格 ¥<%= @item.price.to_i.to_s(:delimited) %></p>
-      <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-        <%= f.select :amount, *[1..3] %>
-        <%= f.hidden_field :item_id, value: @item.id %>
-        <%= f.submit "カートに追加" %>
-      <% end %>
+      <p class="mozi">¥<%= @item.price.to_i.to_s(:delimited) %></p>
+      <div class="d-flex justify-content-end mt-3">
+        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+          <div class="d-flex align-items-center">
+            <div class="mr-2">
+              <%= f.select :amount, options_for_select(1..3), {}, class: "form-control form-select shadow-sm" %>
+            </div>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.submit "カートに追加", class: "btn btn-outline-success shadow-sm" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

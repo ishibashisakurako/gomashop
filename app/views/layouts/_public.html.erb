@@ -1,51 +1,52 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ddffbc;">
   <div class="container">
     <a class="navbar-brand" href="/" data-turbolinks=false>GomaShop</a>
-  </div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
-      <% if customer_signed_in? %> 
-        <li>
-        <%= link_to customer_path(current_customer), class: 'nav-link' do %>
-          <i class="fa-solid fa-right-to-bracket"></i>マイページ
-        <% end %>
-        </li>
-        <li>
-          <%= link_to items_path, class: "nav-link" do %>
-            <i class="fas fa-user-plus"></i> 商品一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to cart_items_path, class: "nav-link" do %>
-            <i class="fa-solid fa-right-to-bracket"></i>カート
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link' do %>
-            <i class="fa-solid fa-right-to-bracket"></i>ログアウト
-          <% end %>
-        </li>
 
-      <% else %>
-        <li>
-          <%= link_to items_path, class: "nav-link" do %>
-            <i class="fas fa-user-plus"></i> 商品一覧
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto" style="list-style:none;">
+        <% if customer_signed_in? %> 
+          <li>
+          <%= link_to customer_path(current_customer), class: 'nav-link' do %>
+            <i class="fa-solid fa-user"></i> マイページ
+          <% end %>
+          </li>
+          <li>
+            <%= link_to items_path, class: "nav-link" do %>
+              <i class="fa-solid fa-image"></i> 商品一覧
             <% end %>
-        </li>
-        <li>
-          <%= link_to new_customer_registration_path, class: 'nav-link' do %>
-            <i class="fas fa-user-plus"></i> 新規登録
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_customer_session_path, class: "nav-link" do %>
-            <i class="fa-solid fa-right-to-bracket"></i>ログイン
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+          </li>
+          <li>
+            <%= link_to cart_items_path, class: "nav-link" do %>
+              <i class="fa-solid fa-cart-shopping"></i> カート
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link' do %>
+              <i class="fa-solid fa-right-to-bracket"></i> ログアウト
+            <% end %>
+          </li>
+
+        <% else %>
+          <li>
+            <%= link_to items_path, class: "nav-link" do %>
+              <i class="fa-solid fa-image"></i> 商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_registration_path, class: 'nav-link' do %>
+              <i class="fas fa-user-plus"></i> 新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_session_path, class: "nav-link" do %>
+              <i class="fa-solid fa-right-to-bracket"></i> ログイン
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>

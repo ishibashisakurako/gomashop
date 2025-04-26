@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
-      <p><i class="fa-solid fa-gears"></i> 新規登録</p>
-
+      <p class="mozi">新規登録</p>
+      <p>ご注文には会員登録が必要です。</p>
+      <hr>
       <%= form_with model: resource, url: registration_path(resource_name), local: true do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
         <p class="field">
