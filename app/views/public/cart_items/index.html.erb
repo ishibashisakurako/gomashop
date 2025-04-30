@@ -1,4 +1,4 @@
-<div class="text-center">ショッピングカート<div>
+<div class="text-center mozi">ショッピングカート</div>
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
@@ -21,13 +21,15 @@
           </tr>
         <% end %>
       </table>
-      <% if current_customer.cart_items.any? %>
-        <p><%= link_to "買い物を続ける", items_path %></p>
-        <p><%= link_to "会計に進む", new_order_path %></p>
-      <% else %>
-        <p>カートにアイテムがありません。</p>
-        <p><%= link_to "お買い物へ", items_path %></p>
-      <% end %>
+      <div class="text-center">
+        <% if current_customer.cart_items.any? %>
+          <p><%= link_to "買い物を続ける", items_path %></p>
+          <p><%= link_to "会計に進む", new_order_path %></p>
+        <% else %>
+          <p>カートにアイテムがありません。</p>
+          <p><%= link_to "お買い物へ", items_path %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

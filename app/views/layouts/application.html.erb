@@ -17,9 +17,17 @@
     <% else %>
       <%= render 'layouts/public' %>
     <% end %>
+    <% if notice %>
+      <div class="alert alert-success text-center">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger  text-center">
+        <%= alert %>
+      </div>
+    <% end %>
     <div class="mt-5 mb-5">
-      <%= notice %>
-      <%= alert %>
       <%= yield %>
     </div>
   </body>
