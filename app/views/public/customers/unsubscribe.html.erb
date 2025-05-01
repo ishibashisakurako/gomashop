@@ -3,6 +3,6 @@
   <p>同じメールアドレスでは再登録はできません。</p>
   <p>また、購入履歴が閲覧できなくなります。</p>
   <p>本当に退会しますか？</p>
-  <p><%= link_to "退会しない", customer_path(@customer) %></p>
-  <%= link_to "退会する", withdraw_customers_path, method: :patch, data: { confirm: "本当に退会しますか？"} %></p>
+  <p><%= link_to "退会しない", customer_path(@customer), class:"btn btn-outline-secondary" %></p>
+  <%= link_to "退会する", withdraw_customers_path, method: :patch, class:"btn btn-outline-danger", data: { confirm: "本当に退会しますか？"} %></p>
 </div>

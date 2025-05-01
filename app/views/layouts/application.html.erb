@@ -17,18 +17,27 @@
     <% else %>
       <%= render 'layouts/public' %>
     <% end %>
+
     <% if notice %>
       <div class="alert alert-success text-center">
         <%= notice %>
       </div>
     <% end %>
+
     <% if alert %>
       <div class="alert alert-danger  text-center">
         <%= alert %>
       </div>
     <% end %>
-    <div class="mt-5 mb-5">
-      <%= yield %>
-    </div>
+    
+      <% if !controller_path.start_with?("admin/") %>
+        <div class="container py-5">
+          <div class="bg-white p-5 rounded shadow-sm">
+            <%= yield %>
+          </div>
+        </div>
+      <% else %>
+        <%= yield %>
+      <% end %>
   </body>
 </html>

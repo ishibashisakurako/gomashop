@@ -1,14 +1,11 @@
 <div class="container">
-  <div class="text-center">商品詳細</div>
-  <hr>
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-3">
+    <div class="col-md-6">
       <% if @item.image.attached? %>
         <%= image_tag @item.image, style: "width: 100%; object-fit:cover; aspect-ratio:5/4;" %>
       <% end %>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       <p><b><%= @item.name %></b></p>
       <p><%= simple_format(@item.introduction) %></p>
       <p class="mozi">¥<%= @item.price.to_i.to_s(:delimited) %></p>
