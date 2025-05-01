@@ -67,5 +67,6 @@ def order_params
     :postal_code,
     :address,
     :telephone_number,
-    :payment_method)
+    :payment_method,
+    :others)
 end

@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-7">
       <p><b><%= @item.name %></b></p>
-      <p><%= @item.introduction %></p>
+      <p><%= simple_format(@item.introduction) %></p>
       <p>税込価格 ¥<%= @item.price.to_i.to_s(:delimited) %></p>
       <%= link_to edit_admin_item_path(@item), class: "btn btn-outline-success" do %>
         <i class="fa-solid fa-gear"></i>

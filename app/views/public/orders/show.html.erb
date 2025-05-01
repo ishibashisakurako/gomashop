@@ -9,6 +9,8 @@
       <p><%= @order.created_at.strftime("%Y年%m月%d日") %></p>
       <p><%= @order.postal_code %></p>
       <p><%= @order.address %></p>
+      <p><%= @order.others %></p>
+
       <p><%= @order.payment_method == "credit_card" ? "クレジットカード" : "銀行振込" %></p>
       <hr>
       注文内容
