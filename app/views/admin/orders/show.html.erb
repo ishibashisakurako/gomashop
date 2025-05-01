@@ -31,10 +31,6 @@
         <% end %>
       </table>
       <hr>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 offset-md-2 text-center mt-5">
       請求情報
       <table class="table">
         <tr>
@@ -48,7 +44,7 @@
           <td><%= @order.total_payment %>円</td>
         </tr>
       </table>
-      <%= link_to "戻る", admin_root_path %>
+      <%= link_to "戻る", admin_root_path, class: "d-flex justify-content-center" %>
     </div>
   </div>
 </div>
