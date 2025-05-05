@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
-      <p class="mozi">会員情報編集</p>
-      <hr>
+      <p class="word-back mb-5">会員情報編集</p>
       <%= form_with model: @customer, local: true do |f| %>
         <div class="field">
           <%= f.label :last_name, "姓" %><br />
@@ -48,7 +47,7 @@
           <button type="submit">更新する</button>
         </div>
 
-        <p><%= link_to "退会する", unsubscribe_customers_path %></p>
+        <p><%= link_to "退会する", unsubscribe_customers_path, class:"btn btn-outline-danger" %></p>
 
       <% end %>
     </div>

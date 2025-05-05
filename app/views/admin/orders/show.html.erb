@@ -1,22 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <div class="text-center">
-        <b>注文情報</b>
-        <hr>
-        <b>注文日時</b>
-        <p><%= @order.created_at.strftime("%Y年%m月%d日") %></p>
-        <b>住所</b>
-        <p>〒<%= @order.postal_code %> <%= @order.address %></p>
-        <b>建物の特徴</b>
-        <p><%= @order.others %></p>
-
-        <b>支払方法</b>
-        <p><%= @order.payment_method == "credit_card" ? "クレジットカード" : "銀行振込" %></p>
-
-      </div>
+    <div class="col-md-8 offset-md-2">
+      <div class="text-center admin-back mb-3">注文情報</div>
+      <p><b>注文日時</b></p>
+      <p><%= @order.created_at.strftime("%Y年%m月%d日") %></p>
+      <hr>
+      <p><b>住所</b></p>
+      <p>〒<%= @order.postal_code %> <%= @order.address %></p>
+      <hr>
+      <p><b>建物の特徴</b></p>
+      <p><%= @order.others %></p>
+      <hr>
+      <p><b>支払方法</b></p>
+      <p><%= @order.payment_method == "credit_card" ? "クレジットカード" : "銀行振込" %></p>
     </div>
-    <div class="col-md-6 mt-3">
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 mt-3">
       <div class="text-center">注文内容</div>
       <table class="table">
         <tr>

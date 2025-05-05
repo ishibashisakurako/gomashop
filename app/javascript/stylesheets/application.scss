@@ -42,3 +42,32 @@
 .back {
   background-color: #ccc; /* 中間のグレー */
 }
+
+.word-back {
+  background-color: #ede4e1;
+  padding: 20px 0;
+}
+
+.admin-back {
+  background-color: #d3d3d3;
+  padding: 20px 0;
+}
+
+a.button {
+  background: #eee;
+  border-radius: 50px;
+  display: inline-block;
+  margin: 20px auto;
+  max-width: 260px;
+  padding: 10px 25px;
+  color: #313131;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.button:hover {
+  background: #313131;
+  color: #fff;
+}

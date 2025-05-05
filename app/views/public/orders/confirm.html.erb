@@ -1,7 +1,7 @@
-<div class="text-center mozi">注文最終確認</div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8 offset-md-2">
+      <div class="text-center word-back">注文商品</div>
       <table class="table">
         <tr>
           <th>商品名</th>
@@ -25,21 +25,26 @@
         <b>請求金額 <%= @total_payment %>円</b>
       </div>
     </div>
-    <div class="col-md-6">
-      <hr>
-      <b>配送先</b>
-      <hr>
-      <b>名前</b>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="text-center word-back mt-3 mb-3">配送先</div>
+      <p><b>名前</b></p></p>
       <p><%= @customer.last_name %> <%= @customer.first_name %>(<%= @customer.last_name_kana %> <%= @customer.first_name_kana %>)</p>
-      <b>郵便番号</b>
+      <hr>
+      <p><b>郵便番号</b></p>
       <p><%= @order.postal_code %></p>
-      <b>住所</b>
+      <hr>
+      <p><b>住所</b></p>
       <p><%= @order.address %></p>
-      <b>電話番号</b>
+      <hr>
+      <p><b>電話番号</b></p>
       <p><%= @order.telephone_number %></p>
-      <b>建物の特徴</b>
+      <hr>
+      <p><b>建物の特徴</b></p>
       <p><%= @order.others %></p>
-      <b>支払方法</b>
+      <hr>
+      <p><b>支払方法</b></p>
       <p><%= @order.payment_method == "credit_card" ? "クレジットカード" : "銀行振込" %></p>
     </div>
   </div>

@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <div class="text-center mozi">マイページ</div>
-      <hr>
+      <div class="text-center word-back mb-5">マイページ</div>
       <div class="row mb-3">
         <div class="col-md-6">メールアドレス</div>
         <b class="col-md-6 text-right">
@@ -50,8 +49,8 @@
         </b>
       </div>
 
-      <p class="text-center"><%= link_to "会員情報を編集する",edit_customer_path(@customer) %></p>
-      <p class="text-center"><%= link_to "注文一覧", orders_path %></p>
+      <p class="text-center"><%= link_to "会員情報を編集する",edit_customer_path(@customer), class:"btn btn-outline-success" %></p>
+      <p class="text-center"><%= link_to "注文一覧", orders_path, class: "btn btn-outline-primary" %></p>
     </div>
   </div>
 </div>

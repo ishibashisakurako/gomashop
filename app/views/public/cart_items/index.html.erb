@@ -1,4 +1,4 @@
-<div class="text-center mozi">ショッピングカート</div>
+<div class="text-center word-back mb-3">ショッピングカート</div>
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
@@ -12,11 +12,11 @@
                 <div class="mr-2">
                   <%= f.select :amount, options_for_select(1..3), {}, class: "form-control form-select shadow-sm" %>
                 </div>
-                <%= f.submit "変更" %>
+                <%= f.submit "変更", class: "btn btn-outline-success" %>
               <% end %>
             </td>
             <td>
-              <%= link_to "削除", cart_item_path(cart_item), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+              <%= link_to "削除", cart_item_path(cart_item), method: :delete, class: "btn btn-outline-danger", data: { confirm: "本当に削除しますか？" } %>
             </td>
           </tr>
         <% end %>
@@ -24,7 +24,8 @@
       <div class="text-center">
         <% if current_customer.cart_items.any? %>
           <p><%= link_to "買い物を続ける", items_path %></p>
-          <p><%= link_to "会計に進む", new_order_path %></p>
+          <p><%= link_to "会計に進む", new_order_path, class: "button" %></p>
+
         <% else %>
           <p>カートにアイテムがありません。</p>
           <p><%= link_to "お買い物へ", items_path %></p>
